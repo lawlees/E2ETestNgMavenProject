@@ -10,14 +10,9 @@
       <class name="com.lawlees.VerifyLogin"/>
       </classes>
       </test>
-     <test  name="VerifyBadLogin" >
+     <test  name="validateHomepage" >
     <classes>
-      <class name="com.lawlees.VerifyBadLogin"/>
-      </classes>
-      </test>
-     <test  name="ValidateNavBar" >
-    <classes>
-      <class name="com.lawlees.ValidateNavBar"/>
+      <class name="com.lawlees.ValidateHomePage"/>
       </classes>
       </test>
 </suite> <!-- Suite -->

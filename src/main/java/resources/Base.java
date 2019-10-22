@@ -22,12 +22,12 @@ public class Base {
 
 	public WebDriver initializeDriver() throws IOException {
 		prop = new Properties();
-		FileInputStream file = new FileInputStream("./src\\main\\java\\resources\\data.properties");
+		FileInputStream file = new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\resources\\data.properties");
 		prop.load(file);
 		String browserName= prop.getProperty("browserName");
 		String headLessFlag=prop.getProperty("headLess");
 		if(browserName.equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\drivers\\chromedriver.exe");
 			if(headLessFlag.equals("true")) {
 				ChromeOptions options = new ChromeOptions();  
 				options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors");  
@@ -55,7 +55,7 @@ public class Base {
 	public void getScreenshot(String testName) throws Exception{
 		TakesScreenshot scrShot =((TakesScreenshot)driver);
 		File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(SrcFile,new File("./screenshots\\"+testName+"ScreenShot.png"));
+		FileUtils.copyFile(SrcFile,new File(System.getProperty("user.dir")+"\\screenshots\\"+testName+"ScreenShot.png"));
 		
 	}
 }

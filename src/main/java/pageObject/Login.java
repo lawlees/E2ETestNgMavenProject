@@ -12,9 +12,10 @@ public class Login {
 		this.driver = driver;
 	}
 
-	By username = By.name("username");
-	By password = By.name("password");
-	By loginButton = By.xpath("//input[contains(@class,'btn-primary')]");
+	private By username = By.name("username");
+	private By password = By.name("password");
+	private By loginButton = By.xpath("//input[contains(@class,'btn-primary')]");
+	
 	public WebElement getUsername() {
 		return driver.findElement(username);
 	}

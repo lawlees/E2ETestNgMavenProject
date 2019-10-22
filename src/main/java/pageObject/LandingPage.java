@@ -12,10 +12,10 @@ public class LandingPage {
 		this.driver = driver;
 	}
 
-	By login = By.xpath("//a[contains(@class,'navbar-right')]");
-	By logout = By.partialLinkText("Log out");
-	By navBar = By.className("container");
-	By messageBox = By.className("jumbotron");
+	private By login = By.xpath("//a[contains(@class,'navbar-right')]");
+	private By logout = By.partialLinkText("Log out");
+	private By navBar = By.className("container");
+	private By messageBox = By.className("jumbotron");
 	
 	
 	public WebElement getLogin() {

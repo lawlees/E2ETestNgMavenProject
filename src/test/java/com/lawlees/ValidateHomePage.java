@@ -9,20 +9,24 @@ import junit.framework.Assert;
 import pageObject.LandingPage;
 import resources.Base;
 
-public class ValidateNavBar extends Base{
+public class ValidateHomePage extends Base{
 		
 	@BeforeTest
 	public void initialize() throws IOException {
 		driver=initializeDriver();	
 		log.info("Driver Initialized");
+		driver.get(prop.getProperty("url"));
+		log.info("HomePage Navigated");
 	}
 	
+	@Test
+	public void validateTitle() {
+		String actualTitle = driver.getTitle();
+		Assert.assertEquals("Blog Project", actualTitle);
+	}
 	
 	@Test
 	public void validateNav() throws InterruptedException {
-		
-		driver.get(prop.getProperty("url"));
-		log.info("HomePage Navigated");
 		LandingPage l = new LandingPage(driver);
 		Assert.assertTrue(l.getNavBar().isDisplayed());
 		log.info("Validated Nav Bar");
@@ -33,7 +37,6 @@ public class ValidateNavBar extends Base{
 	@AfterTest
 	public void TearDown() {
 		driver.quit();
-		driver=null;
-	}
+		}
 	
 }
